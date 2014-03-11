@@ -1,4 +1,26 @@
-
+# == Define: pgpool2::server::pcp
+#
+# pgpool-II pcp defined resource. This resource will help setup auth to the
+# pgpool administration interface.
+# ref: http://www.pgpool.net/docs/latest/tutorial-en.html
+#
+# === Parameters
+#
+# Document parameters here
+#
+# [*user*]
+#   pgpool pcp username.
+#
+# [*pg_md5*]
+#   pg_md5 md5 sum of user password.  You can get this form pg_md5 <user>
+#   example: /usr/bin/pg_md5 postgres
+#
+# [*order*]
+#   Order of concatination snippet for concat.
+#
+# [*target*]
+#   Name of target file.
+#
 define pgpool2::server::pcp(
   $user,
   $pg_md5,

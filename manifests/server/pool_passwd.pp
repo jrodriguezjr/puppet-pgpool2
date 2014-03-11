@@ -1,4 +1,23 @@
-
+# == Define: pgpool2::server::pool_passwd
+#
+# pgpool-II pool_passwd defined resource.
+#
+# === Parameters
+#
+# Document parameters here
+#
+# [*user*]
+#   DB username.
+#
+# [*pg_md5*]
+#   pg_md5 md5 sum of user password.  you can get this form pg_md5 <user>
+#
+# [*order*]
+#   Order of concatination snippet.
+#
+# [*target*]
+#   Name of target file.
+#
 define pgpool2::server::pool_passwd(
   $user,
   $pg_md5,

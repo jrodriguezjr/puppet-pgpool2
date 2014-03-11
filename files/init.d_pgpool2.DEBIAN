@@ -12,7 +12,6 @@
 #              proxy for PostgreSQL.
 ### END INIT INFO
 
-
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/sbin/pgpool
 PIDFILE=/var/run/postgresql/pgpool.pid
@@ -31,23 +30,21 @@ fi
 
 . /lib/lsb/init-functions
 
-
 is_running() {
   pidofproc -p $PIDFILE $DAEMON >/dev/null
 }
-
 
 d_start() {
   if ! test -d /var/run/postgresql; then
     install -d -m 2775 -o postgres -g postgres /var/run/postgresql
   fi
 
-  if is_running; then
-    :
-  else
+  # if is_running; then
+  #   :
+  # else
     #su -c "$DAEMON -n $OPTS 2>&1 </dev/null | logger -t pgpool -p ${PGPOOL_SYSLOG_FACILITY:-local0}.info >/dev/null 2>&1 &" - postgres
-    $DAEMON -n $OPTS 2>&1 &
-  fi
+    $DAEMON -n 2>&1 &
+  # fi
 }
 
 
@@ -58,45 +55,44 @@ d_stop() {
   return $?
 }
 
-
 case "$1" in
     start)
-  log_daemon_msg "Starting pgpool-II" pgpool
-  d_start
-  log_end_msg $?
-  ;;
+          log_daemon_msg "Starting pgpool-II" pgpool
+          d_start
+          log_end_msg $?
+          ;;
     stop)
-  log_daemon_msg "Stopping pgpool-II" pgpool
-  d_stop
-  log_end_msg $?
-  ;;
+          log_daemon_msg "Stopping pgpool-II" pgpool
+          d_stop
+          log_end_msg $?
+          ;;
     status)
-  is_running
-  status=$?
-  if [ $status -eq 0 ]; then
-    log_success_msg "pgpool-II is running."
-  else
-    log_failure_msg "pgpool-II is not running."
-  fi
-  exit $status
-  ;;
+          is_running
+          status=$?
+          if [ $status -eq 0 ]; then
+            log_success_msg "pgpool-II is running."
+          else
+            log_failure_msg "pgpool-II is not running."
+          fi
+          exit $status
+          ;;
     restart|force-reload)
-  log_daemon_msg "Restarting pgpool-II" pgpool
-  d_stop && sleep 1 && d_start
-  log_end_msg $?
-  ;;
+          log_daemon_msg "Restarting pgpool-II" pgpool
+          d_stop && sleep 1 && d_start
+          log_end_msg $?
+          ;;
     try-restart)
-  if $0 status >/dev/null; then
-    $0 restart
-  else
-    exit 0
-  fi
-  ;;
+          if $0 status >/dev/null; then
+            $0 restart
+          else
+            exit 0
+          fi
+          ;;
     reload)
-  exit 3
-  ;;
+          exit 3
+          ;;
     *)
-  log_failure_msg "Usage: $0 {start|stop|status|restart|try-restart|reload|force-reload}"
-  exit 2
-  ;;
+          log_failure_msg "Usage: $0 {start|stop|status|restart|try-restart|reload|force-reload}"
+          exit 2
+          ;;
 esac
