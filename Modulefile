@@ -4,7 +4,7 @@ source 'git://github.com/jrodriguezjr/puppet-pgpool2.git'
 author 'jrodriguezjr'
 license 'Apache License, Version 2.0'
 summary 'PostgreSQL PGTool-II defined resource types'
-description 'PostgreSQL PGTool-II defined resource types'
+description 'PostgreSQL PGTool-II defined resource types. Supported OSes: Debian'
 project_page ''https://github.com/jrodriguezjr/puppet-pgpool2''
 
 ## Add dependencies, if any:

@@ -4,7 +4,7 @@
 #
 class pgpool2::config inherits pgpool2 {
 
-  # make sure the pgpool log directory lives
+  # Make sure the pgpool log directory lives
   file { '/etc/pgpool2':
     ensure  => directory,
     owner   => 0,
@@ -12,7 +12,7 @@ class pgpool2::config inherits pgpool2 {
     mode    => '0755',
   }
 
-  # main pgpool2 config
+  # Main pgpool2 config
   file { $pgpool_conf_path:
     ensure  => file,
     owner   => 0,
@@ -30,6 +30,15 @@ class pgpool2::config inherits pgpool2 {
     content => template($pgpool_default_template),
   }
 
+  # Add pgpoolmanager script
+  file { '/usr/sbin/pgpoolmanager':
+    ensure  => file,
+    owner   => 0,
+    group   => 0,
+    mode    => '0755',
+    content => template($pgmgr_pcp_template),
+  }
+
   # If Debian use our init.d
   if ($::osfamily == "Debian") {
     file { '/etc/init.d/pgpool2':
@@ -41,7 +50,7 @@ class pgpool2::config inherits pgpool2 {
     }
   }
 
-  # make sure the pgpool log directory lives
+  # Make sure the pgpool log directory lives
   file { '/var/log/postgresql':
     ensure  => directory,
     target  => $pgpool2_log_dir,
@@ -50,10 +59,10 @@ class pgpool2::config inherits pgpool2 {
     mode    => '1775',
   }
 
-  # create the pgpool log file
+  # Create the pgpool log file
   file { $pgpool2_log_conf_path:
     ensure  => file,
-    owner   => 0,
+    owner   => postgres,
     group   => postgres,
     mode    => '1775',
   }
