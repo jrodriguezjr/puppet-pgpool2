@@ -22,7 +22,7 @@ class pgpool2::config inherits pgpool2 {
   }
 
   # etc defaults for pgpool
-  file { '/etc/default/pgpool':
+  file { '/etc/default/pgpool2':
     ensure  => file,
     owner   => 0,
     group   => 0,
@@ -87,6 +87,17 @@ class pgpool2::config inherits pgpool2 {
     group  => 0,
     mode   => '0644',
     # warn   => true,
+  }
+
+  # Addy ryslog resource
+  file { '/etc/rsyslog.d/10-pgpool.conf':
+    notify  => Service["rsyslog"],
+    ensure  => file,
+    owner   => 0,
+    group   => 0,
+    mode    => '0644',
+    require => Package["rsyslog"],
+    content => template($pgpool_rsyslog_template),
   }
 
 }

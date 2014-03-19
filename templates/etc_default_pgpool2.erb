@@ -7,7 +7,7 @@
 # sourced by /etc/init.d/pgpool
 
 # syslog facility for pgpool; see logger(1)
-PGPOOL_SYSLOG_FACILITY=local0
+PGPOOL_SYSLOG_FACILITY=<%= @pgpool_syslog_facility %>
 
 # set to "yes" if you want to enable debugging messages to the log
 PGPOOL_LOG_DEBUG=<%= @pgpool_log_debug %>

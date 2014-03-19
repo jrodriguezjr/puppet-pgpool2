@@ -1,0 +1,8 @@
+# Exclude cases:
+:msg, contains, "SimpleQuery" ~
+
+# log anything else
+<%= @pgpool_syslog_facility %>.* /var/log/postgresql/pgpool.log
+
+# Stop processing file
+&~
