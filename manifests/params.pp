@@ -10,7 +10,9 @@ class pgpool2::params {
   $service_ensure             = 'running'
   $service_manage             = true
   $pgpool_log_debug           = 'no'
+  $pgpool_syslog_facility     = 'local1'
   $pgpool_default_template    = 'pgpool2/etc_default_pgpool2.erb'
+  $pgpool_rsyslog_template    = 'pgpool2/rsyslog_pgpool2.conf.erb'
 
   # PGPOOL Config Parameters - start
   # - CONNECTION SETTINGS -
@@ -52,9 +54,9 @@ class pgpool2::params {
   $log_destination            = 'syslog'
 
   # -- What to log -
-  $print_timestamp            = on
-  $log_connections            = on
-  $log_hostname               = on
+  $print_timestamp            = off
+  $log_connections            = off
+  $log_hostname               = off
   $log_statement              = off
   $log_per_node_statement     = off
   $log_standby_delay          = 'none'

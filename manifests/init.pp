@@ -8,8 +8,9 @@ class pgpool2 (
   $service_ensure                 = $pgpool2::params::service_ensure,
   $service_manage                 = $pgpool2::params::service_manage,
   $pgpool_log_debug               = $pgpool2::params::pgpool_log_debug,
+  $pgpool_syslog_facility         = $pgpool2::params::pgpool_syslog_facility,
   $pgpool_default_template        = $pgpool2::params::pgpool_default_template,
-  $pgmgr_pcp_template             = $pgpool2::params::pgmgr_pcp_template,
+  $pgpool_rsyslog_template        = $pgpool2::params::pgpool_rsyslog_template,
 
   $listen_addresses               = $pgpool2::params::listen_addresses,
   $port                           = $pgpool2::params::port,
@@ -91,6 +92,7 @@ class pgpool2 (
   $pgmgr_pcp_password             =$pgpool2::params::pgmgr_pcp_password,
   $pgmgr_pcp_timeout              =$pgpool2::params::pgmgr_pcp_timeout,
   $pgmgr_psql_healthcheck_opts    =$pgpool2::params::pgmgr_psql_healthcheck_opts,
+  $pgmgr_pcp_template             = $pgpool2::params::pgmgr_pcp_template,
 
 ) inherits pgpool2::params {
 

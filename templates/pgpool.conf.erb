@@ -143,18 +143,18 @@ log_destination = '<%= @log_destination %>'
 
 # - What to log -
 
-print_timestamp = on
+print_timestamp = <%= @print_timestamp %>
                                    # Print timestamp on each line
                                    # (change requires restart)
 
-log_connections = on
+log_connections = <%= @log_connections %>
                                    # Log connections
-log_hostname = on
+log_hostname = <%= @log_hostname %>
                                    # Hostname will be shown in ps status
                                    # and in logs if connections are logged
-log_statement = on
+log_statement = <%= @log_statement %>
                                    # Log all statements
-log_per_node_statement = on
+log_per_node_statement = <%= @log_per_node_statement %>
                                    # Log all statements
                                    # with node and backend informations
 log_standby_delay = '<%= @log_standby_delay %>'
