@@ -356,6 +356,10 @@ health_check_user = '<%= @health_check_user %>'
 health_check_password = '<%= @health_check_password %> '
                                    # This parameter is not yet implemented.
                                    # Password for health check user
+health_check_max_retries = <%= @health_check_max_retries %>
+                                   # Maximum number of times to retry a failed health check before giving up.
+health_check_retry_delay = <%= @health_check_retry_delay %>
+                                   # Amount of time to wait (in seconds) between retries.
 
 
 #------------------------------------------------------------------------------

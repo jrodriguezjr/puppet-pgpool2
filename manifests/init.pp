@@ -73,6 +73,8 @@ class pgpool2 (
   $health_check_timeout           = $pgpool2::params::health_check_timeout,
   $health_check_user              = $pgpool2::params::health_check_user,
   $health_check_password          = $pgpool2::params::health_check_password,
+  $health_check_max_retries       = $pgpool2::params::health_check_max_retries,
+  $health_check_retry_delay       = $pgpool2::params::health_check_retry_delay,
 
   $confdir                        = $pgpool2::params::confdir,
   $pgpool_conf_path               = $pgpool2::params::pgpool_conf_path,
