@@ -91,7 +91,7 @@ class pgpool2::params {
   $health_check_period        = 10
   $health_check_timeout       = 20
   $health_check_user          = 'nobody'
-  $health_check_password      = ''
+  $health_check_password      = ' '
   $health_check_max_retries   = 0
   $health_check_retry_delay   = 1
   # PGPOOL Config Parameters - end

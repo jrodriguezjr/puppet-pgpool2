@@ -287,7 +287,7 @@ sr_check_user = '<%= @sr_check_user %>'
                                    # This is necessary even if you disable
                                    # streaming replication delay check with
                                    # sr_check_period = 0
-sr_check_password = '<%= @sr_check_password %> '
+sr_check_password = '<%= @sr_check_password %>'
                                    # Password for streaming replication check user
 delay_threshold = <%= @delay_threshold %>
                                    # Threshold before not dispatching query to standby node
@@ -353,7 +353,7 @@ health_check_timeout = <%= @health_check_timeout %>
                                    # 0 means no timeout
 health_check_user = '<%= @health_check_user %>'
                                    # Health check user
-health_check_password = '<%= @health_check_password %> '
+health_check_password = '<%= @health_check_password %>'
                                    # This parameter is not yet implemented.
                                    # Password for health check user
 health_check_max_retries = <%= @health_check_max_retries %>
