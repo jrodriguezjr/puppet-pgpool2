@@ -103,7 +103,7 @@ class pgpool2 (
   validate_absolute_path($confdir)
   validate_string($config_template)
   validate_string($package_ensure)
-  validate_array($package_name)
+  validate_string($package_name)
   validate_bool($service_enable)
 
 

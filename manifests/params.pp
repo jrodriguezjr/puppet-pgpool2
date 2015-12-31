@@ -113,7 +113,7 @@ class pgpool2::params {
       $pcp_conf_path          = "${confdir}/pcp.conf"
       $defaults_config        = '/etc/default/pgpool2'
       $config_template        = 'pgpool2/pgpool.conf.erb'
-      $package_name           = [ 'pgpool2' ]
+      $package_name           = 'pgpool2'
       $service_name           = 'pgpool2'
       $pgpool_log_dir         = '/var/log/postgresql'
       $pgpool2_log_conf_path  = "${pgpool_log_dir}/pgpool.log"
@@ -129,7 +129,7 @@ class pgpool2::params {
     #   $pcp_conf_path          = pick($pcp_conf_path, "${confdir}/pcp.conf")
     #   $defaults_config        = '/etc/default/pgpool2'
     #   $config_template        = 'pgpool2/pgpool.conf.erb'
-    #   $package_name           = [ 'pgpool2' ]
+    #   $package_name           = 'pgpool2'
     #   $service_name           = 'pgpool2'
     # }
     default: {
